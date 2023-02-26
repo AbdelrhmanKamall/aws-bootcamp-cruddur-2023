@@ -61,7 +61,6 @@ It helps you understand the pros and cons of decisions you make while building s
 
 - It's newly added in 2021 which means using resources in a way that reduces the impact on the environment.
   
-
 Link to the **My** [Crudder App architecture](https://lucid.app/lucidchart/544b9d05-54e8-42a4-9760-226ff0d80f88/edit?viewport_loc=-891%2C-659%2C2464%2C1244%2CbrHxuwCLES31&invitationId=inv_16e9ffbb-f196-4094-bd92-b9621e90d5a3)  
 Link to **My Blog** [Abdelrhman Kamal](https://aws.amazon.com/well-architected-tool/)  
 Link to the [AWS Well-Architected Tool](https://aws.amazon.com/well-architected-tool/)  
