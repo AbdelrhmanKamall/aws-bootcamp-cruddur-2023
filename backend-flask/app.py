@@ -4,6 +4,7 @@ from flask_cors import CORS, cross_origin
 import os
 
 from services.home_activities import *
+from services.notifications_activities import *
 from services.user_activities import *
 from services.create_activity import *
 from services.create_reply import *
@@ -16,6 +17,7 @@ from services.show_activity import *
 app = Flask(__name__)
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
+
 origins = [frontend, backend]
 cors = CORS(
   app, 
@@ -24,6 +26,9 @@ cors = CORS(
   allow_headers="content-type,if-modified-since",
   methods="OPTIONS,GET,HEAD,POST"
 )
+
+# define routes for flask app where these routes are the endpoints for the API calls from the frontend app
+# cross_origin() is used to POST data to the API from the frontend app
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
@@ -63,6 +68,11 @@ def data_create_message():
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
   data = HomeActivities.run()
+  return data, 200
+
+@app.route("/api/activities/notifications", methods=['GET'])
+def data_notifications():
+  data = NotificationsActivities.run()
   return data, 200
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
