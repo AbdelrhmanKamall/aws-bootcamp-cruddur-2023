@@ -7,6 +7,8 @@ import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 import ReplyForm from '../components/ReplyForm';
 
+import { Auth } from 'aws-amplify';
+
 // [TODO] Authenication
 import Cookies from 'js-cookie'
 
@@ -15,7 +17,7 @@ export default function HomeFeedPage() {
   const [popped, setPopped] = React.useState(false);
   const [poppedReply, setPoppedReply] = React.useState(false);
   const [replyActivity, setReplyActivity] = React.useState({});
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState(null);       // to manage users varibles like emails and username and ...
   const dataFetchedRef = React.useRef(false);
 
   const loadData = async () => {
@@ -36,14 +38,22 @@ export default function HomeFeedPage() {
   };
 
   const checkAuth = async () => {
-    console.log('checkAuth')
-    // [TODO] Authenication
-    if (Cookies.get('user.logged_in')) {
-      setUser({
-        display_name: Cookies.get('user.name'),
-        handle: Cookies.get('user.username')
-      })
-    }
+    Auth.currentAuthenticatedUser({     // check if the current user is authenticated or not 
+      // Optional, By default is false. 
+      // If set to true, this call will send a 
+      // request to Cognito to get the latest user data
+      bypassCache: false 
+    })
+    .then((user) => {
+      console.log('user',user);           // log the valid user data
+      return Auth.currentAuthenticatedUser()
+    }).then((cognito_user) => {               // get 
+        setUser({
+          display_name: cognito_user.attributes.name,
+          handle: cognito_user.attributes.preferred_username
+        })
+    })
+    .catch((err) => console.log(err));
   };
 
   React.useEffect(()=>{

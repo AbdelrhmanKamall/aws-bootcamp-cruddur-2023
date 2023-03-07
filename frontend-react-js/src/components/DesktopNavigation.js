@@ -50,3 +50,5 @@ export default function DesktopNavigation(props) {
     </nav>
   );
 }
+
+// if user logged in successfully these {notificationsLink},{messagesLink},{profileLink} will appear for him
