@@ -22,8 +22,8 @@ services:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"   # when you're passing env variables into the react app it needs this to auto load them 
       REACT_APP_AWS_PROJECT_REGION: "us-east-1"
       REACT_APP_AWS_COGNITO_REGION: "us-east-1"
-      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_4J0NEnn9a"
-      REACT_APP_CLIENT_ID: "	koo5htbg01u2mqph79g6uqqqr"
+      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_UNhOFr5td"
+      REACT_APP_CLIENT_ID: "6qsd6n8qd8ok4fubbstp4jsier"
     build: ./frontend-react-js
     ports:
       - "3000:3000"
