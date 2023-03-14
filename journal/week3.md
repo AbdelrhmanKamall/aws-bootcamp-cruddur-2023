@@ -8,11 +8,24 @@ Amazon Cognito is a service that lets you add user sign-up, sign-in, and access 
 **User pools** are user directories where users can sign up and sign in using their email address, phone number, or user name.  
 **Identity pools ( Federated identities )** are identities that are linked to external identity providers, such as Facebook, Amazon, Google, or Apple using credentials from those providers through SAML or OpenID Connect.  
 
-Created user pool and identity pool
+Created user pool
 
-![user pool](../_docs/week4.0.png)
+![user pool](../_docs/week3/week3.0.png)
 
-## AWS Amplify
+Created user in user pool
 
-AWS Amplify is a JavaScript library for frontend and mobile developers building cloud-enabled applications. It provides a declarative and easy-to-use interface across different categories of cloud operations. It can be used with any JavaScript framework, and React Native.
+![user](../_docs/week3/week3.2.png)
+
+Command that uses the AWS Cognito Identity Provider (IDP) service to set a new password for a user in a user pool
+
+![user](../_docs/week3/week3.1.png)
+
+- aws cognito-idp : This is the AWS CLI command for the Cognito Identity Provider service.
+- admin-set-user-password : This is the subcommand used to set the password for a user.
+- username : This is the username (abdelrhmankamal_user1) of the user whose password is being changed.
+- password : This is the new password that will be set for the user. which this password must meets the password policy set for the user pool.
+- user-pool-id : This is the ID of the user pool where the user exists.
+- permanent: This is an optional parameter used to indicate whether the user's password should be permanent or temporary. If this parameter is not used, the password will be set to temporary by default.
+
+![user](../_docs/week3/week3.4.png)
 
